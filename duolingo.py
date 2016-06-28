@@ -329,6 +329,12 @@ class Duolingo(object):
 
         return overview
 
+    def get_vocabulary_words(self, language_abbr):
+        """Get a sorted list of words in user's vocabulary in a language."""
+        overview = self.get_vocabulary(language_abbr)
+        return sorted([word_data['word_string']
+                       for word_data in overview['vocab_overview']])
+
     _cloudfront_server_url = None
     _homepage_text = None
 
